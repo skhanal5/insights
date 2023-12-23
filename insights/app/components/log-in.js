@@ -1,4 +1,4 @@
-export default function Login() {
+export default function Login({ setTrigger }) {
   return (
     <div className="grow flex flex-col justify-between items-center">
       <div className="flex flex-row text-2xl font-bold mt-5 justify-center items-center gap-1">
@@ -8,7 +8,9 @@ export default function Login() {
       <div className="w-full">
         <div className="flex flex-col mb-20">
           <div className="font-semibold text-3xl">Login</div>
-          <div className="text-sm text-gray-600">Please sign in to continue.</div>
+          <div className="text-sm text-gray-600">
+            Resume your job search.
+          </div>
         </div>
         <div className="flex flex-col gap-5">
           <div className="flex flex-col gap-2">
@@ -46,8 +48,10 @@ export default function Login() {
         </div>
       </div>
       <div className="flex flex-row gap-2 p-5 text-sm text-nowrap">
-        <div className="text-gray-400">Don't have an account?</div>
-        <div className="font-semibold text-gray-600">Create Account</div>
+        <div className="text-gray-400">Need an account?</div>
+        <button onClick={setTrigger}>
+          <div className="font-semibold text-gray-600">Create Account</div>
+        </button>
       </div>
     </div>
   );
