@@ -1,11 +1,11 @@
 export default function Login({ setTrigger }) {
   return (
-    <div className="h-full md:w-5/12 lg:w-4/12 p-5 rounded-lg bg-white flex flex-col justify-between items-center">
+    <div className="p-5 md:p-0 lg:p-0 md:w-6/12 lg:w-5/12 h-full rounded-lg bg-white flex flex-col justify-between items-center">
       <div className="md:text-lg flex flex-row text-2xl font-bold mt-5 justify-center items-center gap-1">
         <img src="/insights.svg" className="md:w-20 w-1/6" alt="eye"></img>
         <h1>Insights</h1>
       </div>
-      <div className="md:w-8/12 lg:w-5/12 w-8/12">
+      <div className="md:w-8/12 lg:w-6/12 w-8/12">
         <div className="flex flex-col mb-20">
           <div className="font-semibold text-3xl">Login</div>
           <div className="text-sm text-gray-600">
