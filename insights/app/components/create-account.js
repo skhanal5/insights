@@ -1,15 +1,15 @@
-export default function CreateAccount({ setTrigger }) {
+export default function Login({ setTrigger }) {
   return (
-    <div className="md:w-1/3 grow flex flex-col justify-between items-center">
-      <div className="flex flex-row text-2xl font-bold mt-5 justify-center items-center gap-1">
-        <img src="/insights.svg" className="w-1/6" alt="eye"></img>
+    <div className="p-5 md:p-0 lg:p-0 md:w-6/12 lg:w-5/12 h-full rounded-lg bg-white flex flex-col justify-between items-center">
+      <div className="md:text-lg flex flex-row text-2xl font-bold mt-5 justify-center items-center gap-1">
+        <img src="/insights.svg" className="md:w-20 w-1/6" alt="eye"></img>
         <h1>Insights</h1>
       </div>
-      <div className="w-full">
+      <div className="md:w-8/12 lg:w-6/12 w-8/12">
         <div className="flex flex-col mb-20">
-          <div className="font-semibold text-3xl">Welcome!</div>
+          <div className="font-semibold text-3xl">Create Account</div>
           <div className="text-sm text-gray-600">
-            Create your account and see your insights.
+            Sign up and view your insights.
           </div>
         </div>
         <div className="flex flex-col gap-5">
@@ -31,7 +31,7 @@ export default function CreateAccount({ setTrigger }) {
           </div>
           <div className="flex flex-col gap-3">
             <button className="text-white font-semibold px-2 py-2 rounded-lg bg-gradient-to-r from-blue-700 to-blue-500">
-              Sign Up
+              Create Account
             </button>
             <div className="flex py-2 items-center justify-center w-full">
               <div className="flex-grow border-t border-gray-400"></div>
@@ -48,7 +48,7 @@ export default function CreateAccount({ setTrigger }) {
         </div>
       </div>
       <div className="flex flex-row gap-2 p-5 text-sm text-nowrap">
-        <div className="text-gray-400">Already registered?</div>
+        <div className="text-gray-400">Have an account?</div>
         <button onClick={setTrigger}>
           <div className="font-semibold text-gray-600">Log in</div>
         </button>
