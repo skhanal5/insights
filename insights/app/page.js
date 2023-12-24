@@ -8,7 +8,8 @@ export default function Home() {
   const [trigger, setTrigger] = useState(true);
 
   return (
-    <main className="flex flex-col min-h-screen justify-center items-center p-10">
+    <main className="md:bg-blue-600 md:flex-row flex flex-col min-h-screen max-h-screen h-screen justify-center items-center">
+      <div className="md:grow"></div>
       {
         trigger ?
         (

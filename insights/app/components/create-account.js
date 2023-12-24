@@ -1,6 +1,6 @@
 export default function CreateAccount({ setTrigger }) {
   return (
-    <div className="grow flex flex-col justify-between items-center">
+    <div className="md:w-1/3 grow flex flex-col justify-between items-center">
       <div className="flex flex-row text-2xl font-bold mt-5 justify-center items-center gap-1">
         <img src="/insights.svg" className="w-1/6" alt="eye"></img>
         <h1>Insights</h1>
