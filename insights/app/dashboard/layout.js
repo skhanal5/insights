@@ -1,17 +1,20 @@
-import { Inter } from 'next/font/google'
-import '../globals.css'
+import "../globals.css";
+import { Inter } from "next/font/google";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata = {
-  title: 'Insights',
-  description: 'Job metrics and tracking',
-}
+  title: "Insights",
+  description: "Made by Subodh Khanal",
+};
 
-export default function RootLayout({ children }) {
+export default function DashboardLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
-  )
+    <section className="min-h-screen flex flex-row">
+      <Sidebar></Sidebar>
+      {children}
+    </section>
+  );
 }

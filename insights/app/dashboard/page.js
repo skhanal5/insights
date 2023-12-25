@@ -1,9 +1,11 @@
+import Header from "./components/Header";
+
 export default function Dashboard() {
   
     return (
-      <div>
-        hello
-      </div>
+      <main className="p-10">
+        <Header></Header>
+      </main>
     );
   }
   
