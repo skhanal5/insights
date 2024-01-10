@@ -2,8 +2,9 @@ import Link from "next/link";
 
 export default function SidebarCell({ icon, link, name }) {
   return (
-    <div className="text-slate-500 w-8">
-      {icon}
-    </div>
+    <Link href={link} className="flex flex-row gap-2 text-slate-500">
+      <div className="w-7">{icon}</div>
+      <div className="hidden lg:flex">{name}</div>
+    </Link>
   );
 }

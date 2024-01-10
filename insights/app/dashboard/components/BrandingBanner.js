@@ -8,7 +8,7 @@ export default function BrandingBanner() {
         height={100}
         className="w-14"
       ></Image>
-      <span className="hidden text-lg font-semibold">Insights</span>
+      <span className="hidden lg:flex text-lg font-semibold">Insights</span>
     </div>
   );
 }

@@ -31,9 +31,9 @@ export default function SidebarCellContainer() {
   ];
 
   return (
-    <div className="flex flex-col">
-      <span className="hidden text-sm font-normal text-slate-400">Menu</span>
-      <div className="flex flex-col gap-5 justify-content items-center">
+    <div className="flex flex-col gap-5">
+      <span className="hidden lg:flex text-sm font-normal text-slate-400">Menu</span>
+      <div className="flex flex-col gap-5 items-center lg:items-start">
         {paths.map((path, pathIndex) => (
           <SidebarCell
             key={pathIndex}
