@@ -20,12 +20,8 @@ export default function Header() {
   };
 
   return (
-    <div>
-      <div className="flex">
-        <div className="flex flex-col">
+    <div className="flex flex-col">
           {renderHeader()}
-        </div>
-      </div>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function Login({ setTrigger }) {
   return (
     <div className="p-5 md:p-0 lg:p-0 md:w-6/12 lg:w-5/12 h-full rounded-lg bg-white flex flex-col justify-between items-center">
@@ -49,9 +50,9 @@ export default function Login({ setTrigger }) {
       </div>
       <div className="flex flex-row gap-2 p-5 text-sm text-nowrap">
         <div className="text-gray-400">Need an account?</div>
-        <button onClick={setTrigger}>
+        <Link href="/signup">
           <div className="font-semibold text-gray-600">Create Account</div>
-        </button>
+        </Link>
       </div>
     </div>
   );
