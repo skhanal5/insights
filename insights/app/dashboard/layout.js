@@ -12,9 +12,9 @@ export const metadata = {
 
 export default function DashboardLayout({ children }) {
   return (
-    <section className="h-screen max-h-screen flex flex-row">
+    <main className="h-screen max-h-screen flex flex-row">
       <Sidebar></Sidebar>
       {children}
-    </section>
+    </main>
   );
 }
