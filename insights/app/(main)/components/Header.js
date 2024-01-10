@@ -6,7 +6,7 @@ export default function Header() {
   const pathName = usePathname();
 
   const renderHeader = () => {
-    if (pathName == "/home") {
+    if (pathName == "/dashboard") {
       return (
         <div>
           <h2 className="font-bold text-xl font-blue-700"> Dashboard </h2>

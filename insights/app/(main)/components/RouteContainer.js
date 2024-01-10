@@ -1,4 +1,4 @@
-import SidebarCell from "./SidebarCell";
+import Routes from "./Routes";
 import {
   ChartBarSquareIcon,
   ClipboardDocumentListIcon,
@@ -6,7 +6,7 @@ import {
   QueueListIcon,
 } from "@heroicons/react/24/outline";
 
-export default function SidebarCellContainer() {
+export default function RouteContainer() {
   const paths = [
     {
       name: "Dashboard",
@@ -15,32 +15,33 @@ export default function SidebarCellContainer() {
     },
     {
       name: "Tracker",
-      link: "/dashboard/tracker",
+      link: "/tracker",
       icon: <ClipboardDocumentListIcon/>,
     },
     {
       name: "Goals",
-      link: "/dashboard/goals",
+      link: "/goals",
       icon: <QueueListIcon />,
     },
     {
       name: "Metrics",
-      link: "/dashboard/metrics",
+      link: "/metrics",
       icon: <ChartPieIcon/>,
     },
   ];
+  
 
   return (
     <div className="flex flex-col gap-5">
       <span className="hidden lg:flex text-sm font-normal text-slate-400">Menu</span>
       <div className="flex flex-col gap-5 items-center lg:items-start">
         {paths.map((path, pathIndex) => (
-          <SidebarCell
+          <Routes
             key={pathIndex}
             icon={path.icon}
             name={path.name}
             link={path.link}
-          ></SidebarCell>
+          ></Routes>
         ))}
       </div>
     </div>
