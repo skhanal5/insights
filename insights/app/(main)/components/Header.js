@@ -1,13 +1,12 @@
 "use client";
 
-import { BellIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
   const pathName = usePathname();
 
   const renderHeader = () => {
-    if (pathName == "/dashboard") {
+    if (pathName == "/home") {
       return (
         <div>
           <h2 className="font-bold text-xl font-blue-700"> Dashboard </h2>
