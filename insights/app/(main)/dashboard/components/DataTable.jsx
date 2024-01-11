@@ -24,8 +24,7 @@ import TableUtilities from "./TableUtils";
 export function DataTable({ columns, data }) {
   const [columnVisibility, setColumnVisibility] = React.useState({});
   const [sorting, setSorting] = React.useState([]);
-  const [columnFilters, setColumnFilters] = React.useState([]
-)
+  const [columnFilters, setColumnFilters] = React.useState([]);
 
   const table = useReactTable({
     data,
@@ -34,6 +33,7 @@ export function DataTable({ columns, data }) {
     onColumnVisibilityChange: setColumnVisibility,
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
     onColumnFiltersChange: setColumnFilters,
     state: {
       sorting,
