@@ -1,7 +1,7 @@
 "use client";
 
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -18,10 +18,11 @@ export default function Fields({ table }) {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
+          className="flex flex-row gap-2"
           variant="outline"
         >
-          Fields
-          <ChevronDownIcon className="ml-2 h-4" />
+          <span className="hidden lg:flex">Fields</span>
+          <AdjustmentsHorizontalIcon className="h-4" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="w-[150px]">

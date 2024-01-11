@@ -9,6 +9,7 @@ export const columns = [
     header: ({ column }) => {
       return (
         <Button
+          className="p-2"
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
@@ -31,7 +32,7 @@ export const columns = [
     header: ({ column }) => {
       return (
         <Button
-          className="text-left"
+          className="p-2"
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >

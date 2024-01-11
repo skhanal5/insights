@@ -18,7 +18,7 @@ async function getData() {
     {
       id: 2,
       company: "Amazon",
-      role: "Software Development Engineer L4",
+      role: "Software Engineer L4",
       location: "Seattle, WA",
       link: "google.com",
       date_applied:  "07/05/2023",
