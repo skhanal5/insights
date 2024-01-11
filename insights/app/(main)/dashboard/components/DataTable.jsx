@@ -3,6 +3,8 @@
 import * as React from "react";
 
 import {
+  getSortedRowModel,
+  getFilteredRowModel,
   flexRender,
   getCoreRowModel,
   useReactTable,
@@ -21,14 +23,22 @@ import TableUtilities from "./TableUtils";
 
 export function DataTable({ columns, data }) {
   const [columnVisibility, setColumnVisibility] = React.useState({});
+  const [sorting, setSorting] = React.useState([]);
+  const [columnFilters, setColumnFilters] = React.useState([]
+)
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
+    onSortingChange: setSorting,
+    getSortedRowModel: getSortedRowModel(),
+    onColumnFiltersChange: setColumnFilters,
     state: {
+      sorting,
       columnVisibility,
+      columnFilters,
     },
   });
 

@@ -12,6 +12,7 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 
+//prop drilling from DataTable??
 export default function Fields({ table }) {
   return (
     <DropdownMenu>
@@ -23,9 +24,7 @@ export default function Fields({ table }) {
           <ChevronDownIcon className="ml-2 h-4" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-[150px]">
-        <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
-        <DropdownMenuSeparator />
+      <DropdownMenuContent align="start" className="w-[150px]">
         {table
           .getAllColumns()
           .filter(

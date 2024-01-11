@@ -2,10 +2,12 @@ import { UtilButton } from "./TableUtilBtn";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import { ArrowDownTrayIcon } from "@heroicons/react/24/outline";
 import Fields from "./Fields";
+import SearchFilter from "./SearchFilter";
 
 export default function TableUtilities({table}) {
   return (
-    <div className="flex justify-between w-full mt-5">
+    <div className="flex flex-col lg:flex-row gap-3 justify-between">
+      <SearchFilter table={table}></SearchFilter>
       <div className="flex flex-row gap-5">
         <Fields table={table}></Fields>
         <UtilButton
