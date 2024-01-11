@@ -108,7 +108,7 @@ export default function DialogContents() {
         </div>
       </div>
       <DialogFooter>
-        <Button type="submit">Submit</Button>
+        <Button className="text-white hover:text-white bg-blue-600 hover:bg-blue-500" type="submit">Submit</Button>
       </DialogFooter>
     </DialogContent>
   );

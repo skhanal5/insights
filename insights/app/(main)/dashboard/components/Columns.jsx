@@ -1,8 +1,16 @@
 "use client";
 
 import StatusCell from "./StatusCell";
-import { Button } from "@/components/ui/button";
-import { ChevronUpDownIcon } from "@heroicons/react/24/outline";
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { ChevronUpDownIcon, EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
 
 export const columns = [
   {
@@ -56,6 +64,25 @@ export const columns = [
   {
     accessorKey: "actions",
     header: "Actions",
+    cell: ({ row }) => {
+      const payment = row.original
+ 
+      return (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" className="h-8 w-8 p-0">
+              <span className="sr-only">Open menu</span>
+              <EllipsisHorizontalIcon className="h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+            <DropdownMenuItem>View application details</DropdownMenuItem>
+            <DropdownMenuItem>Delete application</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )
+    }
   },
 ];
 
