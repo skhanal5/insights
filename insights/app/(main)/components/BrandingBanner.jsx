@@ -4,8 +4,8 @@ export default function BrandingBanner() {
     <div className="mt-5 flex flex-row gap-1 items-center justify-content">
       <Image
         src="/insights.svg"
-        width={100}
-        height={100}
+        width={500}
+        height={500}
         className="w-14"
         alt="Insights logo"
       ></Image>

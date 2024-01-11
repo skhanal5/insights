@@ -1,6 +1,6 @@
 "use client";
 
-import Status from "./Status";
+import StatusCell from "./StatusCell";
 import { Button } from "@/components/ui/button";
 import { ChevronUpDownIcon } from "@heroicons/react/24/outline";
 
@@ -29,7 +29,7 @@ export const columns = [
     header: "Location"
   },
   {
-    accessorKey: "date_applied",
+    accessorKey: "applied",
     header: ({ column }) => {
       return (
         <Button
@@ -49,7 +49,7 @@ export const columns = [
     cell: ({row}) => {
       const applicationData = row.original
       return (
-        <Status status={applicationData.status}></Status>
+        <StatusCell status={applicationData.status}></StatusCell>
       )
     }
   },

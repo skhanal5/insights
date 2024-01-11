@@ -1,7 +1,6 @@
 import { Input } from "@/components/ui/input";
 
 //prop drilling from DataTable??
-//TODO: need to pass in the state function to fix prop
 export default function SearchFilter({ table }) {
   return (
     <div className="flex items-center">
