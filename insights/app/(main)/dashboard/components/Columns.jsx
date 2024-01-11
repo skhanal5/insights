@@ -1,5 +1,6 @@
 "use client";
 
+import Status from "./Status";
 import { Button } from "@/components/ui/button";
 import { ChevronUpDownIcon } from "@heroicons/react/24/outline";
 
@@ -45,6 +46,12 @@ export const columns = [
   {
     accessorKey: "status",
     header: "Status",
+    cell: ({row}) => {
+      const applicationData = row.original
+      return (
+        <Status status={applicationData.status}></Status>
+      )
+    }
   },
   {
     accessorKey: "actions",

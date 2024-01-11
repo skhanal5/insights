@@ -1,4 +1,3 @@
-import TableUtilities from "./components/TableUtils";
 import { DataTable } from "./components/DataTable";
 import {columns} from "./components/Columns"
 async function getData() {
@@ -12,7 +11,7 @@ async function getData() {
       location: "Chicago, IL",
       link: "google.com",
       date_applied: "08/01/2023",
-      status: "Auto Rejected",
+      status: "Rejected",
       notes: "Resume screened",
     },
     {
