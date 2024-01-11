@@ -1,4 +1,4 @@
-import TableUtilities from "./components/TableUtilities";
+import TableUtilities from "./components/TableUtils";
 import { DataTable } from "./components/DataTable";
 import {columns} from "./components/Columns"
 async function getData() {
@@ -52,8 +52,7 @@ export default async function Tracker() {
   const data = await getData()
 
   return (
-    <div className="flex flex-col gap-5">
-      <TableUtilities></TableUtilities>
+    <div>
       <DataTable columns={columns} data={data}></DataTable>
     </div>
   );

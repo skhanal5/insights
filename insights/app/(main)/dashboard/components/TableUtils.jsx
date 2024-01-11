@@ -1,13 +1,13 @@
-import { UtilButton } from "./UtilButton";
+import { UtilButton } from "./TableUtilBtn";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import { ArrowDownTrayIcon } from "@heroicons/react/24/outline";
 import Fields from "./Fields";
 
-export default function TableUtilities() {
+export default function TableUtilities({table}) {
   return (
     <div className="flex justify-between w-full mt-5">
       <div className="flex flex-row gap-5">
-        <Fields></Fields>
+        <Fields table={table}></Fields>
         <UtilButton
           buttonName="Import"
           buttonIcon={<ArrowDownTrayIcon></ArrowDownTrayIcon>}

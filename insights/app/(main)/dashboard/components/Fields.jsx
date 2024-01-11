@@ -1,34 +1,49 @@
 "use client";
 
-import * as React from "react";
+import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuTrigger,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 
-export default function Fields() {
-  const [showStatusBar, setShowStatusBar] = React.useState(true);
-  const [showPanel, setShowPanel] = React.useState(false);
-  const columns = ["Company", "Role", "Status"];
+export default function Fields({ table }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">Fields</Button>
+        <Button
+          variant="outline"
+        >
+          Fields
+          <ChevronDownIcon className="ml-2 h-4" />
+        </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-13">
-        {columns.map((columnName, columnIndex) => (
-          <DropdownMenuCheckboxItem
-            checked={showStatusBar}
-            onCheckedChange={setShowStatusBar}
-            key={columnIndex}
-          >
-            {columnName}
-          </DropdownMenuCheckboxItem>
-        ))}
+      <DropdownMenuContent align="end" className="w-[150px]">
+        <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        {table
+          .getAllColumns()
+          .filter(
+            (column) =>
+              typeof column.accessorFn !== "undefined" && column.getCanHide()
+          )
+          .map((column) => {
+            return (
+              <DropdownMenuCheckboxItem
+                key={column.id}
+                className="capitalize"
+                checked={column.getIsVisible()}
+                onCheckedChange={(value) => column.toggleVisibility(!!value)}
+              >
+                {column.id}
+              </DropdownMenuCheckboxItem>
+            );
+          })}
       </DropdownMenuContent>
     </DropdownMenu>
   );
