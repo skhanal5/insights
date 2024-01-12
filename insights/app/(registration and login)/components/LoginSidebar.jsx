@@ -1,4 +1,5 @@
-export default function Login({ setTrigger }) {
+import Link from "next/link";
+export default function Login() {
   return (
     <div className="p-5 md:p-0 lg:p-0 md:w-6/12 lg:w-5/12 h-full rounded-lg bg-white flex flex-col justify-between items-center">
       <div className="md:text-lg flex flex-row text-2xl font-bold mt-5 justify-center items-center gap-1">
@@ -7,9 +8,9 @@ export default function Login({ setTrigger }) {
       </div>
       <div className="md:w-8/12 lg:w-6/12 w-8/12">
         <div className="flex flex-col mb-20">
-          <div className="font-semibold text-3xl">Create Account</div>
+          <div className="font-semibold text-3xl">Login</div>
           <div className="text-sm text-gray-600">
-            Sign up and view your insights.
+            Resume your job search.
           </div>
         </div>
         <div className="flex flex-col gap-5">
@@ -31,7 +32,7 @@ export default function Login({ setTrigger }) {
           </div>
           <div className="flex flex-col gap-3">
             <button className="text-white font-semibold px-2 py-2 rounded-lg bg-gradient-to-r from-blue-700 to-blue-500">
-              Create Account
+              Log In
             </button>
             <div className="flex py-2 items-center justify-center w-full">
               <div className="flex-grow border-t border-gray-400"></div>
@@ -48,10 +49,10 @@ export default function Login({ setTrigger }) {
         </div>
       </div>
       <div className="flex flex-row gap-2 p-5 text-sm text-nowrap">
-        <div className="text-gray-400">Have an account?</div>
-        <button onClick={setTrigger}>
-          <div className="font-semibold text-gray-600">Log in</div>
-        </button>
+        <div className="text-gray-400">Need an account?</div>
+        <Link href="/signup">
+          <div className="font-semibold text-gray-600">Create Account</div>
+        </Link>
       </div>
     </div>
   );
