@@ -8,3 +8,4 @@
 * Making views responsive
 * Focusing on reducing decoupling & duplicity
 * Separating client and server side logic
+* Setting up a serverless backend
