@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 export default function TableUtilities({ table }) {
   return (
-    <div className="flex flex-col lg:flex-row justify-between">
+    <div className="flex flex-col lg:flex-row justify-between gap-3">
       <SearchFilter table={table}></SearchFilter>
       <div className="flex flex-row gap-3">
         <Fields table={table}></Fields>

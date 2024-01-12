@@ -28,57 +28,57 @@ export default function DialogContents() {
   const [date, setDate] = React.useState();
 
   return (
-    <DialogContent className="sm:max-w-[425px]">
+    <DialogContent className="w-[350px] lg:w-fit">
       <DialogHeader>
-        <DialogTitle>Add a new application</DialogTitle>
-        <DialogDescription>
+        <DialogTitle className="text-sm text-left lg:text-base">Add a new application</DialogTitle>
+        <DialogDescription className="text-xs text-left lg:text-sm">
           Fill in the details about your job application. Click submit when
           you're done.
         </DialogDescription>
       </DialogHeader>
-      <div className="grid gap-4 py-4">
-        <div className="grid grid-cols-4 items-center gap-4">
-          <Label htmlFor="company" className="text-right">
+      <div className="grid gap-4 py-4 items-center justify-content">
+        <div className="grid grid-cols-4 items-center justify-content gap-4">
+          <Label htmlFor="company" className="text-xs text-right lg:text-sm">
             Company
           </Label>
           <Input
             id="company"
             defaultValue="Enter company name"
-            className="col-span-3 text-sm"
+            className="text-xs col-span-3 lg:text-sm"
           />
         </div>
         <div className="grid grid-cols-4 items-center gap-4">
-          <Label htmlFor="role" className="text-right">
+          <Label htmlFor="role" className="text-xs text-right lg:text-sm">
             Role
           </Label>
           <Input
             id="role"
             defaultValue="Enter your job role"
-            className="col-span-3 text-sm"
+            className="text-xs col-span-3 lg:text-sm"
           />
         </div>
         <div className="grid grid-cols-4 items-center gap-4">
-          <Label htmlFor="location" className="text-right">
+          <Label htmlFor="location" className="text-xs text-right lg:text-sm">
             Location
           </Label>
           <Input
             id="location"
             defaultValue="Enter job location"
-            className="col-span-3 text-sm"
+            className="text-xs col-span-3 lg:text-sm"
           />
         </div>
         <div className="grid grid-cols-4 items-center gap-4">
-          <Label htmlFor="applied" className="text-right">
+          <Label htmlFor="applied" className="text-xs text-right lg:text-sm">
             Date Applied
           </Label>
           <DatePicker></DatePicker>
         </div>
         <div className="grid grid-cols-4 items-center gap-4">
-          <Label htmlFor="status" className="text-right">
+          <Label htmlFor="status" className="text-xs text-right lg:text-sm">
             Application Status
           </Label>
           <Select>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="col-span-3">
               <SelectValue placeholder={<StatusCell status="Applied"></StatusCell>} />
             </SelectTrigger>
             <SelectContent>
