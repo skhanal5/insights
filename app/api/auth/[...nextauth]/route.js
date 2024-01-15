@@ -43,7 +43,10 @@ const authHandler = NextAuth({
         }
       }
     })
-  ]
+  ],
+  session: {
+    strategy: "jwt"
+  }
 })
 
 
