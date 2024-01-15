@@ -1,11 +1,48 @@
-import Link from "next/link"
+"use client";
+import { useRef } from "react";
+import Link from "next/link";
+import { signIn } from "next-auth/react";
+
 export default function CreateForm() {
+  const email = useRef("");
+  const password = useRef("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    //handle empty email and password case
+
+    const response = await fetch(process.env.BACKEND_API_URL + "/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "applications/json",
+      },
+      body: JSON.stringify({
+        email:  email,
+        password: password
+      }),
+    });
+
+    if (response) {
+      await signIn("credentials", {
+        email: email.current,
+        password: password.current,
+        redirect: true,
+        callbackUrl: "http://localhost:3000/dashboard",
+      });
+    } else {
+      //indicate error
+    }
+  };
 
   return (
-    <form className="p-5 md:p-0 lg:p-0 md:w-6/12 lg:w-5/12 h-full rounded-lg bg-white flex flex-col justify-between items-center">
+    <form
+      className="p-5 md:p-0 lg:p-0 md:w-6/12 lg:w-5/12 h-full rounded-lg bg-white flex flex-col justify-between items-center"
+      onSubmit={handleSubmit}
+    >
       <div className="md:text-lg flex flex-row text-2xl font-bold mt-5 justify-center items-center gap-1">
         <img src="/insights.svg" className="md:w-20 w-1/6" alt="eye"></img>
-        <h1>Insights</h1>
+        <h1 className="font-semibold">Insights</h1>
       </div>
       <div className="md:w-8/12 lg:w-6/12 w-8/12">
         <div className="flex flex-col mb-20">
@@ -21,6 +58,9 @@ export default function CreateForm() {
                 className="text-black h-full w-full focus:outline-none"
                 type="text"
                 placeholder="Email Address"
+                onChange={(e) => {
+                  email.current = e.target.value;
+                }}
               ></input>
             </div>
             <div className="p-2 rounded-lg border-2 border-black-100">
@@ -28,11 +68,17 @@ export default function CreateForm() {
                 className="text-black h-full w-full focus:outline-none"
                 type="password"
                 placeholder="Password"
+                onChange={(e) => {
+                  password.current = e.target.value;
+                }}
               ></input>
             </div>
           </div>
           <div className="flex flex-col gap-3">
-            <button className="text-white font-semibold px-2 py-2 rounded-lg bg-gradient-to-r from-blue-700 to-blue-500">
+            <button
+              className="text-white font-semibold px-2 py-2 rounded-lg bg-gradient-to-r from-blue-700 to-blue-500"
+              type="submit"
+            >
               Create Account
             </button>
             <div className="flex py-2 items-center justify-center w-full">

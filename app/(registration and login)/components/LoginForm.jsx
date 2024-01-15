@@ -3,6 +3,7 @@
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRef } from "react";
+
 export default function LoginForm() {
   const email = useRef("");
   const password = useRef("");
@@ -27,7 +28,7 @@ export default function LoginForm() {
     >
       <div className="md:text-lg flex flex-row text-2xl font-bold mt-5 justify-center items-center gap-1">
         <img src="/insights.svg" className="md:w-20 w-1/6" alt="eye"></img>
-        <h1>Insights</h1>
+        <h1 className="font-semibold">Insights</h1>
       </div>
       <div className="md:w-8/12 lg:w-6/12 w-8/12">
         <div className="flex flex-col mb-20">
