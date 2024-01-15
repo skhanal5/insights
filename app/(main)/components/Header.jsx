@@ -1,26 +1,29 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import HeaderContent from "./HeaderContent";
 
 export default function Header() {
   const pathName = usePathname();
 
-  const renderHeader = () => {
-    if (pathName == "/tracker") {
-      return (
-        <div>
-          <h2 className="font-bold text-xl font-blue-700"> Tracker </h2>
-          <p className="mt-1 text-xs font-light font-gray-100">
-            Keep track of all of your existing job applications.
-          </p>
-        </div>
-      );
+  const renderHeader = (pathName) => {
+    switch (pathName) {
+      case "/dashboard":
+        return (
+          <HeaderContent
+            header="Dashboard"
+            description="Here are some quick insights into your job search."
+          ></HeaderContent>
+        );
+      case "/tracker":
+        return (
+          <HeaderContent
+            header="Tracker"
+            description="Keep track of all of your existing job applications."
+          ></HeaderContent>
+        );
     }
   };
 
-  return (
-    <div className="flex flex-col">
-          {renderHeader()}
-    </div>
-  );
+  return <div className="flex flex-col">{renderHeader(pathName)}</div>;
 }
