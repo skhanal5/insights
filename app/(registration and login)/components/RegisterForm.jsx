@@ -1,38 +1,33 @@
 "use client";
-import { useRef } from "react";
-import Link from "next/link";
+import { useRef, useState } from "react";
 import { signIn } from "next-auth/react";
+import { Input } from "@/components/ui/input";
+import Branding from "./Branding";
+import FormTitle from "./FormTitle";
+import FormAlternativeOption from "./FormAlternativeOption";
+import ErrorPopup from "./ErrorPopup";
 
 export default function CreateForm() {
+  const firstName = useRef("");
+  const lastName = useRef("");
   const email = useRef("");
   const password = useRef("");
+  const [error, setError] = useState("")
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    //handle empty email and password case
 
-    const response = await fetch(process.env.BACKEND_API_URL + "/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "applications/json",
-      },
-      body: JSON.stringify({
-        email:  email,
-        password: password
-      }),
-    });
-
-    if (response) {
-      await signIn("credentials", {
+    try {
+      await signIn("register", {
         email: email.current,
         password: password.current,
         redirect: true,
         callbackUrl: "http://localhost:3000/dashboard",
       });
-    } else {
-      //indicate error
+    } catch (err) {
+      setError(err.message)
     }
+
   };
 
   return (
@@ -40,39 +35,26 @@ export default function CreateForm() {
       className="p-5 md:p-0 lg:p-0 md:w-6/12 lg:w-5/12 h-full rounded-lg bg-white flex flex-col justify-between items-center"
       onSubmit={handleSubmit}
     >
-      <div className="md:text-lg flex flex-row text-2xl font-bold mt-5 justify-center items-center gap-1">
-        <img src="/insights.svg" className="md:w-20 w-1/6" alt="eye"></img>
-        <h1 className="font-semibold">Insights</h1>
-      </div>
-      <div className="md:w-8/12 lg:w-6/12 w-8/12">
-        <div className="flex flex-col mb-20">
-          <div className="font-semibold text-3xl">Create Account</div>
-          <div className="text-sm text-gray-600">
-            Sign up and view your insights.
-          </div>
-        </div>
-        <div className="flex flex-col gap-5">
+      <Branding></Branding>
+      <div className="md:w-8/12 lg:w-6/12 w-8/12 flex flex-col gap-5">
+        <FormTitle
+          title={"Create Account"}
+          subtitle="Sign up and view your insights."
+        ></FormTitle>
+        {
+          error ?
+          <ErrorPopup errorMessage={error}></ErrorPopup>
+          :
+          <></>
+        }
+        <div className="flex flex-col gap-3 text-xs md:text-base">
           <div className="flex flex-col gap-2">
-            <div className="p-2 rounded-lg border-2 border-black-100">
-              <input
-                className="text-black h-full w-full focus:outline-none"
-                type="text"
-                placeholder="Email Address"
-                onChange={(e) => {
-                  email.current = e.target.value;
-                }}
-              ></input>
+            <div className="flex flex-row gap-2">
+              <Input type="text" placeholder="First Name" onChange={(e) => (firstName.current = e.target.value)}/>
+              <Input type="text" placeholder="Last Name" onChange={(e) => (lastName.current = e.target.value)}/>
             </div>
-            <div className="p-2 rounded-lg border-2 border-black-100">
-              <input
-                className="text-black h-full w-full focus:outline-none"
-                type="password"
-                placeholder="Password"
-                onChange={(e) => {
-                  password.current = e.target.value;
-                }}
-              ></input>
-            </div>
+            <Input type="email" placeholder="Email Address" onChange={(e) => (email.current = e.target.value)}/>
+            <Input type="password" placeholder="Password" onChange={(e) => (password.current = e.target.value)}/>
           </div>
           <div className="flex flex-col gap-3">
             <button
@@ -95,12 +77,11 @@ export default function CreateForm() {
           </div>
         </div>
       </div>
-      <div className="flex flex-row gap-2 p-5 text-sm text-nowrap">
-        <div className="text-gray-400">Have an account?</div>
-        <Link href="/login">
-          <div className="font-semibold text-gray-600">Log in</div>
-        </Link>
-      </div>
+      <FormAlternativeOption
+        question={"Have an account?"}
+        path={"/login"}
+        pathDescriptor={"Log In"}
+      ></FormAlternativeOption>
     </form>
   );
 }

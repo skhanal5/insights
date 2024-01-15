@@ -13,12 +13,14 @@ export default function LoginForm() {
     //for logging
     console.log(email.current, password.current);
 
-    await signIn("credentials", {
+    const response = await signIn("login", {
       email: email.current,
       password: password.current,
       redirect: true,
       callbackUrl: "http://localhost:3000/dashboard",
     });
+
+    // handle error
   };
 
   return (
@@ -75,7 +77,7 @@ export default function LoginForm() {
           </div>
         </div>
       </div>
-      <div className="flex flex-row gap-2 p-5 text-sm text-nowrap">
+      <div className="flex flex-row gap-2 p-5 text-sm text-nowrap mb-5">
         <div className="text-gray-400">Need an account?</div>
         <Link href="/signup">
           <div className="font-semibold text-gray-600">Create Account</div>
