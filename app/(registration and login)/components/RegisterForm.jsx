@@ -6,6 +6,7 @@ import Branding from "./Branding";
 import FormTitle from "./FormTitle";
 import FormAlternativeOption from "./FormAlternativeOption";
 import ErrorPopup from "./ErrorPopup";
+import { useRouter } from "next/navigation";
 
 export default function CreateForm() {
   const firstName = useRef("");
@@ -13,6 +14,7 @@ export default function CreateForm() {
   const email = useRef("");
   const password = useRef("");
   const [error, setError] = useState("")
+  const router = useRouter()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,8 +29,9 @@ export default function CreateForm() {
     });
     console.log(response)
     
-    if (response?.error) {
-      setError(response.error)
+    switch (response.error) {
+      case (null): router.push("/dashboard")
+      default: setError(response.error)
     }
 
   };

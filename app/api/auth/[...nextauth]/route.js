@@ -57,13 +57,14 @@ const authHandler = NextAuth({
           }),
         });
 
-        const user = await response.json();
-        if (user) {
-          console.log(user)
-          return user;
+        const responseBody = await response.json();
+        if (responseBody.hasOwnProperty("$metadata")) {
+          return {
+            "name": credentials.firstName,
+            "email": credentials.email
+          }
         } else {
-          console.log(user)
-          throw new Error("WTF Happened")
+          throw new Error("Something went wrong. Please try again later")
         }
       },
     }),

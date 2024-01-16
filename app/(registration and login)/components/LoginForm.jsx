@@ -29,7 +29,7 @@ export default function LoginForm() {
     console.log(response)
     switch (response.error) {
       case (null): router.push("/dashboard")
-      default: setError("Invalid credentials. Try again")
+      default: setError(response.error)
     }
   }
 
