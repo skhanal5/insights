@@ -1,9 +1,9 @@
 import PageContainer from "../components/PageContainer";
-import Login from "../components/LoginSidebar";
+import LoginForm from "../components/LoginForm";
 export default function LoginPage() {
   return (
     <>
-      <PageContainer child={<Login></Login>}>
+      <PageContainer child={<LoginForm></LoginForm>}>
       </PageContainer>
     </>
   );
