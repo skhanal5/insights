@@ -11,10 +11,10 @@ const authHandler = NextAuth({
 
       async authorize(credentials, req) {
         // check if our user exists
-        const res = await fetch(process.env.BACKEND_API_URL + "/auth", {
+        const response = await fetch(process.env.BACKEND_API_URL + "/auth", {
           method: "POST",
           headers: {
-            "Content-Type": "applications/json",
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             email: credentials?.email,
@@ -22,8 +22,7 @@ const authHandler = NextAuth({
           }),
         });
 
-        const user = await res.json();
-
+        const user = await response.json();
         if (user) {
           return user;
         } else {
@@ -43,12 +42,11 @@ const authHandler = NextAuth({
       },
 
       async authorize(credentials, req) {
-      
         // add user into table
-        const res = await fetch(process.env.BACKEND_API_URL + "/users", {
+        const response = await fetch(process.env.BACKEND_API_URL + "/users", {
           method: "POST",
           headers: {
-            "Content-Type": "applications/json",
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             firstName: credentials?.firstName,
@@ -58,11 +56,12 @@ const authHandler = NextAuth({
           }),
         });
 
-        const user = await res.json();
-        console.log(user)
+        const user = await response.json();
         if (user) {
+          console.log(user)
           return user;
         } else {
+          console.log(user)
           throw new Error("WTF Happened")
         }
       },

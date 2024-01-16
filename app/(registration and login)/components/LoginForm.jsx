@@ -2,24 +2,35 @@
 
 import { signIn } from "next-auth/react";
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { useRouter } from 'next/navigation'
 
 export default function LoginForm() {
   const email = useRef("");
   const password = useRef("");
+  const [error, setError] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     //for logging
-    console.log(email.current, password.current);
 
     const response = await signIn("login", {
       email: email.current,
       password: password.current,
-      redirect: true,
+      redirect: false,
       callbackUrl: "http://localhost:3000/dashboard",
     });
 
+    switch (response.ok) {
+      case (true): {
+        setError(response.error)
+      }
+      case (false): {
+        router.push("/dashboard")      
+      }
+    }
+    console.log(response)
     // handle error
   };
 
