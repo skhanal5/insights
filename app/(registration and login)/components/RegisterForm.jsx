@@ -25,7 +25,6 @@ export default function CreateForm() {
       redirect: false,
       callbackUrl: "http://localhost:3000/dashboard",
     });
-
     console.log(response)
     
     if (response?.error) {

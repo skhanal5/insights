@@ -23,10 +23,11 @@ const authHandler = NextAuth({
         });
 
         const user = await response.json();
-        if (user) {
-          return user;
+        console.log(user)
+        if (user.hasOwnProperty("email")) {
+          return user
         } else {
-          return null;
+          throw new Error("Received invalid credentials.")
         }
       },
     }),

@@ -14,6 +14,7 @@ export default function LoginForm() {
   const password = useRef("");
   const [error, setError] = useState("");
   const router = useRouter();
+  const formRef = useRef(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,21 +26,17 @@ export default function LoginForm() {
       redirect: false,
     });
 
-    switch (response.ok) {
-      case true: {
-        setError(response.error);
-      }
-      case false: {
-        router.push("/dashboard");
-      }
+    console.log(response)
+    switch (response.error) {
+      case (null): router.push("/dashboard")
+      default: setError("Invalid credentials. Try again")
     }
-    console.log(response);
-    // handle error
-  };
+  }
 
   return (
     <form
-      className="p-5 md:p-0 lg:p-0 md:w-6/12 lg:w-5/12 h-full rounded-lg bg-white flex flex-col justify-between items-center"
+    ref={formRef}  
+    className="p-5 md:p-0 lg:p-0 md:w-6/12 lg:w-5/12 h-full rounded-lg bg-white flex flex-col justify-between items-center"
       onSubmit={handleSubmit}
     >
       <Branding></Branding>
