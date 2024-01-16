@@ -17,15 +17,19 @@ export default function CreateForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      await signIn("register", {
-        email: email.current,
-        password: password.current,
-        redirect: true,
-        callbackUrl: "http://localhost:3000/dashboard",
-      });
-    } catch (err) {
-      setError(err.message)
+    const response = await signIn("register", {
+      firstName: firstName.current,
+      lastName: lastName.current,
+      email: email.current,
+      password: password.current,
+      redirect: false,
+      callbackUrl: "http://localhost:3000/dashboard",
+    });
+
+    console.log(response)
+    
+    if (response?.error) {
+      setError(response.error)
     }
 
   };
@@ -41,12 +45,7 @@ export default function CreateForm() {
           title={"Create Account"}
           subtitle="Sign up and view your insights."
         ></FormTitle>
-        {
-          error ?
-          <ErrorPopup errorMessage={error}></ErrorPopup>
-          :
-          <></>
-        }
+        <ErrorPopup errorMessage={error}></ErrorPopup>
         <div className="flex flex-col gap-3 text-xs md:text-base">
           <div className="flex flex-col gap-2">
             <div className="flex flex-row gap-2">
