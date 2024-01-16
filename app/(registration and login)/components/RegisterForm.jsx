@@ -42,7 +42,7 @@ export default function CreateForm() {
       <Branding></Branding>
       <div className="md:w-8/12 lg:w-6/12 w-8/12 flex flex-col gap-5">
         <FormTitle
-          title={"Create Account"}
+          title="Create Account"
           subtitle="Sign up and view your insights."
         ></FormTitle>
         <ErrorPopup errorMessage={error}></ErrorPopup>

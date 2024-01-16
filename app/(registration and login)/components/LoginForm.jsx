@@ -1,9 +1,13 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import Link from "next/link";
 import { useRef, useState } from "react";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
+import Branding from "./Branding";
+import ErrorPopup from "./ErrorPopup";
+import FormTitle from "./FormTitle";
+import { Input } from "@/components/ui/input";
+import FormAlternativeOption from "./FormAlternativeOption";
 
 export default function LoginForm() {
   const email = useRef("");
@@ -19,18 +23,17 @@ export default function LoginForm() {
       email: email.current,
       password: password.current,
       redirect: false,
-      callbackUrl: "http://localhost:3000/dashboard",
     });
 
     switch (response.ok) {
-      case (true): {
-        setError(response.error)
+      case true: {
+        setError(response.error);
       }
-      case (false): {
-        router.push("/dashboard")      
+      case false: {
+        router.push("/dashboard");
       }
     }
-    console.log(response)
+    console.log(response);
     // handle error
   };
 
@@ -39,33 +42,22 @@ export default function LoginForm() {
       className="p-5 md:p-0 lg:p-0 md:w-6/12 lg:w-5/12 h-full rounded-lg bg-white flex flex-col justify-between items-center"
       onSubmit={handleSubmit}
     >
-      <div className="md:text-lg flex flex-row text-2xl font-bold mt-5 justify-center items-center gap-1">
-        <img src="/insights.svg" className="md:w-20 w-1/6" alt="eye"></img>
-        <h1 className="font-semibold">Insights</h1>
-      </div>
-      <div className="md:w-8/12 lg:w-6/12 w-8/12">
-        <div className="flex flex-col mb-20">
-          <div className="font-semibold text-3xl">Login</div>
-          <div className="text-sm text-gray-600">Resume your job search.</div>
-        </div>
-        <div className="flex flex-col gap-5">
+      <Branding></Branding>
+      <div className="md:w-8/12 lg:w-6/12 w-8/12 flex flex-col gap-5">
+        <FormTitle title="Login" subtitle="Resume your job search."></FormTitle>
+        <ErrorPopup errorMessage={error}></ErrorPopup>
+        <div className="flex flex-col gap-3 text-xs md:text-base">
           <div className="flex flex-col gap-2">
-            <div className="p-2 rounded-lg border-2 border-black-100">
-              <input
-                className="text-black h-full w-full focus:outline-none"
-                type="text"
-                placeholder="Email Address"
-                onChange={(e) => (email.current = e.target.value)}
-              ></input>
-            </div>
-            <div className="p-2 rounded-lg border-2 border-black-100">
-              <input
-                className="text-black h-full w-full focus:outline-none"
-                type="password"
-                placeholder="Password"
-                onChange={(e) => (password.current = e.target.value)}
-              ></input>
-            </div>
+            <Input
+              type="email"
+              placeholder="Email Address"
+              onChange={(e) => (email.current = e.target.value)}
+            />
+            <Input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => (password.current = e.target.value)}
+            />
           </div>
           <div className="flex flex-col gap-3">
             <button
@@ -88,12 +80,11 @@ export default function LoginForm() {
           </div>
         </div>
       </div>
-      <div className="flex flex-row gap-2 p-5 text-sm text-nowrap mb-5">
-        <div className="text-gray-400">Need an account?</div>
-        <Link href="/signup">
-          <div className="font-semibold text-gray-600">Create Account</div>
-        </Link>
-      </div>
+      <FormAlternativeOption
+        question={"Haven't registered yet?"}
+        path={"/signup"}
+        pathDescriptor={"Register"}
+      ></FormAlternativeOption>
     </form>
   );
 }
