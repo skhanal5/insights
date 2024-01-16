@@ -1,4 +1,4 @@
-import CreateAccount from "../components/CreateSidebar";
+import CreateAccount from "../components/RegisterForm";
 import PageContainer from "../components/PageContainer";
 export default function Home() {
 
