@@ -77,6 +77,7 @@ export const columns = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
+            <DropdownMenuSeparator />
             <DropdownMenuItem>View application details</DropdownMenuItem>
             <DropdownMenuItem>Delete application</DropdownMenuItem>
           </DropdownMenuContent>

@@ -2,7 +2,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-export default function Routes({ icon, link, name }) {
+export default function SidebarLink({ icon, link, name }) {
   
   //haven't decided where the best place is to put this
   const pathname = usePathname()

@@ -1,4 +1,4 @@
-import Routes from "./Routes";
+import SidebarLink from "./SidebarLink";
 import {
   ChartBarSquareIcon,
   ClipboardDocumentListIcon,
@@ -6,7 +6,7 @@ import {
   QueueListIcon,
 } from "@heroicons/react/24/outline";
 
-export default function RouteContainer() {
+export default function SidebarLinkContainer() {
   const paths = [
     {
       name: "Dashboard",
@@ -36,12 +36,12 @@ export default function RouteContainer() {
       <span className="hidden lg:flex text-sm font-normal text-slate-400">Menu</span>
       <div className="flex flex-col gap-5 items-center lg:items-start">
         {paths.map((path, pathIndex) => (
-          <Routes
+          <SidebarLink
             key={pathIndex}
             icon={path.icon}
             name={path.name}
             link={path.link}
-          ></Routes>
+          ></SidebarLink>
         ))}
       </div>
     </div>
