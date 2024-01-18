@@ -25,7 +25,10 @@ const authHandler = NextAuth({
         const user = await response.json();
         console.log(user)
         if (user.hasOwnProperty("email")) {
-          return user
+          return {
+            emaiL: user.email,
+            name: user.firstName
+          }
         } else {
           throw new Error("Received invalid credentials.")
         }
@@ -60,8 +63,8 @@ const authHandler = NextAuth({
         const responseBody = await response.json();
         if (responseBody.hasOwnProperty("$metadata")) {
           return {
-            "name": credentials.firstName,
-            "email": credentials.email
+            name: credentials.firstName, 
+            email: credentials.email
           }
         } else {
           throw new Error("Something went wrong. Please try again later")
