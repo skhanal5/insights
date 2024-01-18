@@ -23,7 +23,6 @@ const authHandler = NextAuth({
         });
 
         const user = await response.json();
-        console.log(user)
         if (user.hasOwnProperty("email")) {
           return {
             emaiL: user.email,

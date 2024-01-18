@@ -26,7 +26,6 @@ export default function LoginForm() {
       redirect: false,
     });
 
-    console.log(response)
     switch (response.error) {
       case (null): router.push("/dashboard")
       default: setError(response.error)

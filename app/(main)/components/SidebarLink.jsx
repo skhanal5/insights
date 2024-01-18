@@ -8,7 +8,7 @@ export default function SidebarLink({ icon, link, name }) {
   const pathname = usePathname()
   const activeStyling = pathname == link ? "text-blue-600 font-semibold" : "text-slate-500"
   return (
-    <Link href={link} className={`flex flex-row items-center gap-2 ${activeStyling}`}>
+    <Link href={link} className={`p-2 flex flex-row items-center gap-2 hover:bg-slate-100 rounded-lg transition ease-ins ${activeStyling}`}>
       <div className="w-7">{icon}</div>
       <div className="hidden lg:flex">{name}</div>
     </Link>

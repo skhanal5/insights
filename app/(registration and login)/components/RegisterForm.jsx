@@ -27,7 +27,6 @@ export default function CreateForm() {
       redirect: false,
       callbackUrl: "http://localhost:3000/dashboard",
     });
-    console.log(response)
     
     switch (response.error) {
       case (null): router.push("/dashboard")
