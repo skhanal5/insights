@@ -5,10 +5,16 @@ import {
 } from "@/components/shadcn/dialog";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import DialogContents from "./DialogContents";
+import { useState } from "react";
 
 export default function AddDialogBtn() {
+  const [open, setOpen] = useState(false)
+
+  const closeDialog = () => {
+    setOpen(false)
+  }
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button
           variant="outline"
@@ -20,7 +26,7 @@ export default function AddDialogBtn() {
           </span>
         </Button>
       </DialogTrigger>
-      <DialogContents></DialogContents>
+      <DialogContents closeDialog={closeDialog}></DialogContents>
     </Dialog>
   );
 }
