@@ -1,4 +1,4 @@
-import { ArrowDownTrayIcon } from "@heroicons/react/24/outline";
+import { ArrowDownTrayIcon, ArrowUpTrayIcon } from "@heroicons/react/24/outline";
 import AddDialogBtn from "./AddDialogBtn";
 import Fields from "./Fields";
 import SearchFilter from "./SearchFilter";
@@ -22,7 +22,7 @@ export default function TableUtilities({ table }) {
           className={`flex flex-row gap-2`}
         >
           <span className="hidden lg:flex">Export</span>
-          <span className="w-4"><ArrowDownTrayIcon></ArrowDownTrayIcon></span>
+          <span className="w-4"><ArrowUpTrayIcon></ArrowUpTrayIcon></span>
         </Button>
         <AddDialogBtn></AddDialogBtn>
       </div>

@@ -79,7 +79,7 @@ export const columns = [
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>View application details</DropdownMenuItem>
-            <DropdownMenuItem>Delete application</DropdownMenuItem>
+            <DropdownMenuItem className="text-red-700">Delete application</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )
