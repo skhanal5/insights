@@ -1,3 +1,5 @@
+import { signOut } from "next-auth/react"
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -32,7 +34,7 @@ export default function HeaderProfile() {
         <DropdownMenuLabel>Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>View Account Information</DropdownMenuItem>
-        <DropdownMenuItem>Log out</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => signOut()}>Log out</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
