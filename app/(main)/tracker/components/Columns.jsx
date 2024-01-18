@@ -1,7 +1,7 @@
 "use client";
 
 import StatusCell from "./StatusCell";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/shadcn/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,7 +9,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/shadcn/dropdown-menu"
 import { ChevronUpDownIcon, EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
 
 export const columns = [

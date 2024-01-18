@@ -4,9 +4,9 @@ import { signIn } from "next-auth/react";
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Branding from "./Branding";
-import ErrorPopup from "./ErrorPopup";
+import ErrorPopup from "@/components/ErrorPopup";
 import FormTitle from "./FormTitle";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/shadcn/input";
 import FormAlternativeOption from "./FormAlternativeOption";
 
 export default function LoginForm() {

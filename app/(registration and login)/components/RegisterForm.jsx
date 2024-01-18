@@ -1,11 +1,11 @@
 "use client";
 import { useRef, useState } from "react";
 import { signIn } from "next-auth/react";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/shadcn/input";
 import Branding from "./Branding";
 import FormTitle from "./FormTitle";
 import FormAlternativeOption from "./FormAlternativeOption";
-import ErrorPopup from "./ErrorPopup";
+import ErrorPopup from "@/components/ErrorPopup";
 import { useRouter } from "next/navigation";
 
 export default function CreateForm() {
