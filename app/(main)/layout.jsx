@@ -15,10 +15,10 @@ export default async function RootLayout({ children }) {
   const session = await getServerSession();
 
   return (
-    <html lang="en">
+    <html lang="en" className="min-h-screen">
       <body className={inter.className}>
         <SessionProvider>
-          <main className="h-screen max-h-screen flex flex-row">
+          <main className="flex flex-row">
             <Sidebar></Sidebar>
             <ContentContainer children={children}></ContentContainer>
           </main>

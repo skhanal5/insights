@@ -12,14 +12,14 @@ export default function TableUtilities({ table }) {
         <Fields table={table}></Fields>
         <Button
           variant="outline"
-          className={` flex flex-row gap-2`}
+          className="flex flex-row gap-2"
         >
           <span className="hidden lg:flex">Import</span>
           <span className="w-4"><ArrowDownTrayIcon></ArrowDownTrayIcon></span>
         </Button>
         <Button
           variant="outline"
-          className={`flex flex-row gap-2`}
+          className="flex flex-row gap-2"
         >
           <span className="hidden lg:flex">Export</span>
           <span className="w-4"><ArrowUpTrayIcon></ArrowUpTrayIcon></span>

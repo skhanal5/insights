@@ -22,7 +22,7 @@ export default function HeaderProfile() {
   return (
     <DropdownMenu className="w-full">
       <DropdownMenuTrigger asChild>
-        <div className="p-2 select-none flex flex-row gap-3 items-center justify-content hover:cursor-pointer hover:bg-slate-700/10 rounded-lg transition ease-in duration-150">
+        <div className="p-0 md:p-2 select-none flex flex-row gap-3 items-center justify-content hover:cursor-pointer hover:bg-slate-700/10 rounded-lg transition ease-in duration-150">
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback>{getInitials()}</AvatarFallback>

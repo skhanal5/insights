@@ -18,8 +18,8 @@ export default function HeaderTitle() {
     }
     return (
       <div className="flex flex-col gap-1">
-        <h2 className="font-bold text-xl"> {header} </h2>
-        <p className="text-xs"> {description} </p>
+        <h2 className="font-bold text-sm md:text-xl"> {header} </h2>
+        <p className="text-xs md:text-sm"> {description} </p>
       </div>
     );
   };
