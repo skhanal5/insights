@@ -5,7 +5,7 @@
 # Insights
 
 ## About
-* This project was made so I get better at making a responsive frontend and learn more about implementing a serverless backend.
+* This project was made so I get better at making a responsive frontend and learn more about implementing a serverless backend. It is an extension of a project that I made that did not take into consideration/fully implement the above.
 * Frontend made using React, Tailwind, Shadcn, and RadixUI
 * Backend made using API Gateway, Lambda, S3, and DynamoDB
 
