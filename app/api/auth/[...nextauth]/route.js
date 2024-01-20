@@ -25,7 +25,8 @@ const authHandler = NextAuth({
         const user = await response.json();
         if (user.hasOwnProperty("email")) {
           return {
-            emaiL: user.email,
+            id: user.id,
+            email: user.email,
             name: user.firstName
           }
         } else {
@@ -52,6 +53,7 @@ const authHandler = NextAuth({
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            id: credentials?.id,
             firstName: credentials?.firstName,
             lastName: credentials?.lastName,
             email: credentials?.email,
@@ -62,6 +64,7 @@ const authHandler = NextAuth({
         const responseBody = await response.json();
         if (responseBody.hasOwnProperty("$metadata")) {
           return {
+            id: credentials.id,
             name: credentials.firstName, 
             email: credentials.email
           }
@@ -77,6 +80,12 @@ const authHandler = NextAuth({
   pages: {
     signIn: "/login",
   },
+  callbacks: {
+    session({ session, token, user }) {
+      session.user.id = token.sub
+      return session;
+   }
+ }
 });
 
 export { authHandler as GET, authHandler as POST };

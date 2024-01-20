@@ -20,6 +20,7 @@ export default function CreateForm() {
     e.preventDefault();
 
     const response = await signIn("register", {
+      id: crypto.randomUUID(),
       firstName: firstName.current,
       lastName: lastName.current,
       email: email.current,

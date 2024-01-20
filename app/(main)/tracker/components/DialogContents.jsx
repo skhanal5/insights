@@ -22,15 +22,17 @@ import StatusCell from "./StatusCell";
 import { DatePicker } from "./DatePicker";
 import { useRef, useState } from "react";
 import ErrorPopup from "@/components/ErrorPopup";
+import { useSession } from "next-auth/react";
 
 export default function DialogContents({ closeDialog }) {
   const formRef = useRef(null);
   const company = useRef("");
   const role = useRef("");
   const location = useRef("");
-  const [status, setStatus] = useState("applied");
+  const [appStatus, setAppStatus] = useState("applied");
   const [date, setDate] = useState();
   const [error, setError] = useState("");
+  const { data: session, status } = useSession()
 
   const resetFields = () => {
     company.current = ""
@@ -38,12 +40,13 @@ export default function DialogContents({ closeDialog }) {
     location.current= ""
     setError("");
     setDate(null);
-    setStatus("applied");
+    setAppStatus("applied");
   };
 
   const handleAddApplication = async (e) => {
     //doesn't do anything iirc
     e.preventDefault();
+    console.log(session.user);
 
     //handle error condition
     if (!company || !role || !location || !date) {
@@ -61,7 +64,6 @@ export default function DialogContents({ closeDialog }) {
     //close
     formRef.current.reset();
     resetFields();
-    console.log(company);
     closeDialog();
   };
 
@@ -122,7 +124,7 @@ export default function DialogContents({ closeDialog }) {
             <Label htmlFor="status" className="text-xs text-right lg:text-sm">
               Application Status
             </Label>
-            <Select onValueChange={setStatus}>
+            <Select onValueChange={setAppStatus}>
               <SelectTrigger className="col-span-3">
                 <SelectValue
                   placeholder={<StatusCell status="Applied"></StatusCell>}
