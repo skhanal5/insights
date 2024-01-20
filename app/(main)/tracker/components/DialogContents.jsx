@@ -1,5 +1,5 @@
 "use client";
-
+import {format} from "date-fns"
 import {
   Select,
   SelectContent,
@@ -30,7 +30,7 @@ export default function DialogContents({ closeDialog }) {
   const role = useRef("");
   const location = useRef("");
   const [appStatus, setAppStatus] = useState("applied");
-  const [date, setDate] = useState();
+  const [date, setDate] = useState("");
   const [error, setError] = useState("");
   const { data: session, status } = useSession()
 
@@ -43,6 +43,11 @@ export default function DialogContents({ closeDialog }) {
     setAppStatus("applied");
   };
 
+  const changeDateFormat = (date) => {
+    let convertedDate = format(date, "MM/dd/yyyy")
+    setDate(convertedDate)
+  }
+
   const handleAddApplication = async (e) => {
     //doesn't do anything iirc
     e.preventDefault();
@@ -54,11 +59,23 @@ export default function DialogContents({ closeDialog }) {
       return;
     }
 
-    //send request to API
-    //process.env doesn't work for some reason..\
-    //need a way to generate uuid for each user..
-    //const response = await fetch(process.env.BACKEND_API_URL + "/users/");
+    const response = await fetch("https://rswxhfle0j.execute-api.us-east-1.amazonaws.com/v1/applications", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: session.user.email,
+        app_id: crypto.randomUUID(),
+        company: company,
+        role: role,
+        app_location: location,
+        date: date,
+        app_status: appStatus,
+      }),
+    }); 
 
+    console.log(response);
     //handle loading somehow
 
     //close
@@ -118,7 +135,7 @@ export default function DialogContents({ closeDialog }) {
             <Label htmlFor="applied" className="text-xs text-right lg:text-sm">
               Date Applied
             </Label>
-            <DatePicker date={date} setDate={setDate}></DatePicker>
+            <DatePicker date={date} setDate={changeDateFormat}></DatePicker>
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="status" className="text-xs text-right lg:text-sm">

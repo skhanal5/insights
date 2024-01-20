@@ -14,8 +14,6 @@ import {
 } from "@/components/shadcn/popover"
 
 export function DatePicker({date, setDate}) {
-
-
   return (
     <Popover>
       <PopoverTrigger asChild>
