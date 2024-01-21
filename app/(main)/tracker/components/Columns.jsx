@@ -14,7 +14,7 @@ import { ChevronUpDownIcon, EllipsisHorizontalIcon } from "@heroicons/react/24/o
 
 export const columns = [
   {
-    accessorKey: "company",
+    accessorKey: "Company",
     header: ({ column }) => {
       return (
         <Button
@@ -29,15 +29,15 @@ export const columns = [
     },
   },
   {
-    accessorKey: "role",
+    accessorKey: "Role",
     header: "Role",
   },
   {
-    accessorKey: "location",
+    accessorKey: "Location",
     header: "Location"
   },
   {
-    accessorKey: "applied",
+    accessorKey: "Date",
     header: ({ column }) => {
       return (
         <Button
@@ -45,24 +45,24 @@ export const columns = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Applied
+          Date
           <ChevronUpDownIcon className="ml-2 h-4 w-4"></ChevronUpDownIcon>
         </Button>
       );
     },
   },
   {
-    accessorKey: "status",
+    accessorKey: "Status",
     header: "Status",
     cell: ({row}) => {
       const applicationData = row.original
       return (
-        <StatusCell status={applicationData.status}></StatusCell>
+        <StatusCell status={applicationData.Status}></StatusCell>
       )
     }
   },
   {
-    accessorKey: "actions",
+    accessorKey: "Actions",
     header: "Actions",
     cell: ({ row }) => {
       const payment = row.original
@@ -85,14 +85,4 @@ export const columns = [
       )
     }
   },
-];
-
-const headers = [
-  "Company",
-  "Role",
-  "Location",
-  "Date",
-  "Status",
-  "Notes",
-  "Actions",
 ];

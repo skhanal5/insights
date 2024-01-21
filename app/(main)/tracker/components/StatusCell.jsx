@@ -2,8 +2,8 @@ export default function StatusCell({ status }) {
     let bgColor = "";
     let textColor = "";
     let ringColor = "";
-    
-    if (status === "Applied") {
+    console.log(status)
+    if (status == "Applied") {
       bgColor = "bg-blue-50";
       textColor = "text-blue-500";
       ringColor = "ring-blue-500/10";

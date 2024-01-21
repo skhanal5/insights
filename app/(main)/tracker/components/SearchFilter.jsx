@@ -6,9 +6,9 @@ export default function SearchFilter({ table }) {
     <div className="flex items-center">
       <Input
         placeholder="Search application..."
-        value={(table.getColumn("company")?.getFilterValue()) ?? ""}
+        value={(table.getColumn("Company")?.getFilterValue()) ?? ""}
         onChange={(event) =>
-          table.getColumn("company")?.setFilterValue(event.target.value)
+          table.getColumn("Company")?.setFilterValue(event.target.value)
         }
         className="text-sm max-w-sm focus:outline-none"
       />

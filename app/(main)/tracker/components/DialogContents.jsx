@@ -29,7 +29,7 @@ export default function DialogContents({ closeDialog }) {
   const company = useRef("");
   const role = useRef("");
   const location = useRef("");
-  const [appStatus, setAppStatus] = useState("applied");
+  const [appStatus, setAppStatus] = useState("Applied");
   const [date, setDate] = useState("");
   const [error, setError] = useState("");
   const { data: session, status } = useSession()
@@ -148,25 +148,25 @@ export default function DialogContents({ closeDialog }) {
                 />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="offer">
+                <SelectItem value="Offer">
                   <StatusCell status="Offer"></StatusCell>
                 </SelectItem>
-                <SelectItem value="screen">
+                <SelectItem value="Screen">
                   <StatusCell status="Phone Screen"></StatusCell>
                 </SelectItem>
-                <SelectItem value="rejected">
+                <SelectItem value="Rejected">
                   <StatusCell status="Rejected"></StatusCell>
                 </SelectItem>
-                <SelectItem value="interview">
+                <SelectItem value="Interview">
                   <StatusCell status="Interview"></StatusCell>
                 </SelectItem>
-                <SelectItem value="ghosted">
+                <SelectItem value="Ghosted">
                   <StatusCell status="Ghosted"></StatusCell>
                 </SelectItem>
-                <SelectItem value="assessment">
+                <SelectItem value="Assessment">
                   <StatusCell status="Assessment"></StatusCell>
                 </SelectItem>
-                <SelectItem value="applied">
+                <SelectItem value="Applied">
                   <StatusCell status="Applied"></StatusCell>
                 </SelectItem>
               </SelectContent>
