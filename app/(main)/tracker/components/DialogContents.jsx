@@ -67,9 +67,9 @@ export default function DialogContents({ closeDialog }) {
       body: JSON.stringify({
         email: session.user.email,
         app_id: crypto.randomUUID(),
-        company: company,
-        role: role,
-        app_location: location,
+        company: company.current,
+        role: role.current,
+        app_location: location.current,
         date: date,
         app_status: appStatus,
       }),
