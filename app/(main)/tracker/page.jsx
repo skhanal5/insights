@@ -15,12 +15,13 @@ export default function Tracker() {
     })
 
     const appData = await response.json();
-    setData([appData])
+    if (appData != "No applications found") {
+      setData([appData])
+    }
   }
   
   useEffect(() => {
     const applications = getAllApplications();
-    console.log(data)
   }, []);
 
   return (
