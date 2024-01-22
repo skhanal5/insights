@@ -15,15 +15,14 @@ export default function Tracker() {
     })
 
     const applicationData = await response.json();
+    console.log(applicationData)
     if (applicationData != "No applications found") {
-      for (const index in applicationData) {
-        setApplications([...applications, applicationData[index]])
-      }
+      setApplications([...applications, ...applicationData])
     }
   }
   
   useEffect(() => {
-    const applications = getAllApplications();
+    getAllApplications();
   }, []);
 
   return (
