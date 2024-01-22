@@ -6,7 +6,7 @@ import { DataTable } from "./components/DataTable";
 import { columns } from "./components/Columns"
 
 export default function Tracker() {
-  const [data, setData] = useState([])
+  const [applications, setApplications] = useState([])
   const { data: session, status } = useSession()
   
   const getAllApplications = async () => {
@@ -14,9 +14,11 @@ export default function Tracker() {
       method: "GET",
     })
 
-    const appData = await response.json();
-    if (appData != "No applications found") {
-      setData([appData])
+    const applicationData = await response.json();
+    if (applicationData != "No applications found") {
+      for (const index in applicationData) {
+        setApplications([...applications, applicationData[index]])
+      }
     }
   }
   
@@ -26,7 +28,7 @@ export default function Tracker() {
 
   return (
     <div>
-      <DataTable columns={columns} data={data}></DataTable>
+      <DataTable columns={columns} data={applications}></DataTable>
     </div>
   );
 }

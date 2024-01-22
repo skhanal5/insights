@@ -37,7 +37,7 @@ export const columns = [
     header: "Location"
   },
   {
-    accessorKey: "Date Applied",
+    accessorKey: "Date",
     header: ({ column }) => {
       return (
         <Button
@@ -45,7 +45,7 @@ export const columns = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Date Applied
+          Date
           <ChevronUpDownIcon className="ml-2 h-4 w-4"></ChevronUpDownIcon>
         </Button>
       );

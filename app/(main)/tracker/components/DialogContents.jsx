@@ -40,7 +40,7 @@ export default function DialogContents({ closeDialog }) {
     location.current= ""
     setError("");
     setDate(null);
-    setAppStatus("applied");
+    setAppStatus("Applied");
   };
 
   const changeDateFormat = (date) => {
@@ -51,7 +51,6 @@ export default function DialogContents({ closeDialog }) {
   const handleAddApplication = async (e) => {
     //doesn't do anything iirc
     e.preventDefault();
-    console.log(session.user);
 
     //handle error condition
     if (!company || !role || !location || !date) {
