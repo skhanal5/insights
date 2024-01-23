@@ -9,9 +9,9 @@
 * Frontend made using React, Tailwind, Shadcn, and RadixUI
 * Backend made using API Gateway, Lambda, S3, and DynamoDB
 
-## Project Preview
+## Project Demo
 
-### General Overview (Soon)
+### Desktop Overview (Soon)
 
 ### Mobile Overview (Soon)
 
