@@ -62,17 +62,6 @@ export default function LoginForm() {
             >
               Log In
             </button>
-            <div className="flex py-2 items-center justify-center w-full">
-              <div className="flex-grow border-t border-gray-400"></div>
-              <span className="flex-shrink mx-4 text-gray-400">Or</span>
-              <div className="flex-grow border-t border-gray-400"></div>
-            </div>
-            <button className="text-white font-semibold px-2 py-2 rounded-lg bg-gradient-to-r from-blue-700 to-blue-500">
-              Google
-            </button>
-            <button className="text-white font-semibold px-2 py-2 rounded-lg bg-gradient-to-r from-blue-700 to-blue-500">
-              Apple
-            </button>
           </div>
         </div>
       </div>
