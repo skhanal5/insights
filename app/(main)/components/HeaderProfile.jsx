@@ -13,19 +13,21 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/shadcn/avatar"
 import { useSession } from "next-auth/react";
 
 export default function HeaderProfile() {
-  const getInitials = () => {
-    return "";
-  };
- 
   const { data : session } = useSession();
+
+  const getInitials = () => {
+    if (session?.user?.name) {
+      return session.user.name[0]
+    };
+  };
 
   return (
     <DropdownMenu className="w-full">
       <DropdownMenuTrigger asChild>
         <div className="p-0 md:p-2 select-none flex flex-row gap-3 items-center justify-content hover:cursor-pointer hover:bg-slate-700/10 rounded-lg transition ease-in duration-150">
           <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-            <AvatarFallback>{getInitials()}</AvatarFallback>
+            <AvatarImage src="" alt="@shadcn" />
+            <AvatarFallback className="bg-gradient-to-r from-blue-700 to-blue-500 font-semibold text-white">{getInitials()}</AvatarFallback>
           </Avatar>
           <span className="text-sm hidden md:flex lg:flex">{session?.user?.name}</span>
         </div>
