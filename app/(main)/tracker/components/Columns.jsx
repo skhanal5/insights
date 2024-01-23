@@ -1,7 +1,8 @@
 "use client";
 
 import StatusCell from "./StatusCell";
-import { Button } from "@/components/shadcn/button"
+import { Button } from "@/components/shadcn/button";
+import DeleteDialogBtn from "./DeleteDialogBtn";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,8 +10,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/shadcn/dropdown-menu"
-import { ChevronUpDownIcon, EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
+} from "@/components/shadcn/dropdown-menu";
+import {
+  ChevronUpDownIcon,
+  EllipsisHorizontalIcon,
+} from "@heroicons/react/24/outline";
 
 export const columns = [
   {
@@ -34,7 +38,7 @@ export const columns = [
   },
   {
     accessorKey: "Location",
-    header: "Location"
+    header: "Location",
   },
   {
     accessorKey: "Date",
@@ -54,19 +58,17 @@ export const columns = [
   {
     accessorKey: "Status",
     header: "Status",
-    cell: ({row}) => {
-      const applicationData = row.original
-      return (
-        <StatusCell status={applicationData.Status}></StatusCell>
-      )
-    }
+    cell: ({ row }) => {
+      const applicationData = row.original;
+      return <StatusCell status={applicationData.Status}></StatusCell>;
+    },
   },
   {
     accessorKey: "Actions",
     header: "Actions",
     cell: ({ row }) => {
-      const payment = row.original
- 
+      //const payment = row.original;
+
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -78,11 +80,13 @@ export const columns = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>View application details</DropdownMenuItem>
-            <DropdownMenuItem className="text-red-700">Delete application</DropdownMenuItem>
+            <DropdownMenuItem className="hover:cursor-pointer">
+              View application details
+            </DropdownMenuItem>
+            <DeleteDialogBtn ></DeleteDialogBtn>
           </DropdownMenuContent>
         </DropdownMenu>
-      )
-    }
+      );
+    },
   },
 ];
