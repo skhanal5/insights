@@ -7,7 +7,7 @@ import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import DialogContents from "./DialogContents";
 import { useState } from "react";
 
-export default function AddDialogBtn() {
+export default function AddDialogBtn({applications, setApplications}) {
   const [open, setOpen] = useState(false)
 
   const closeDialog = () => {
@@ -26,7 +26,7 @@ export default function AddDialogBtn() {
           </span>
         </Button>
       </DialogTrigger>
-      <DialogContents closeDialog={closeDialog}></DialogContents>
+      <DialogContents applications={applications} setApplications={setApplications} closeDialog={closeDialog}></DialogContents>
     </Dialog>
   );
 }

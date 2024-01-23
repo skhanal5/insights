@@ -22,9 +22,9 @@ import {
   TableRow,
 } from "@/components/shadcn/table";
 
-import TableUtilities from "./TableUtils";
+import TableUtilities from "./TableUtilities";
 
-export function DataTable({ columns, data }) {
+export function DataTable({ columns, data, applications, setApplications }) {
   const [columnVisibility, setColumnVisibility] = React.useState({});
   const [sorting, setSorting] = React.useState([]);
   const [columnFilters, setColumnFilters] = React.useState([]);
@@ -48,7 +48,7 @@ export function DataTable({ columns, data }) {
 
   return (
     <div className="flex flex-col gap-5">
-      <TableUtilities table={table}></TableUtilities>
+      <TableUtilities table={table} applications={applications} setApplications={setApplications}></TableUtilities>
       <div>
         <div className="rounded-md border">
           <Table>

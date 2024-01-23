@@ -4,7 +4,7 @@ import Fields from "./Fields";
 import SearchFilter from "./SearchFilter";
 import { Button } from "@/components/shadcn/button";
 
-export default function TableUtilities({ table }) {
+export default function TableUtilities({ table, applications, setApplications }) {
   return (
     <div className="flex flex-col lg:flex-row justify-between gap-3">
       <SearchFilter table={table}></SearchFilter>
@@ -24,7 +24,7 @@ export default function TableUtilities({ table }) {
           <span className="hidden lg:flex">Export</span>
           <span className="w-4"><ArrowUpTrayIcon></ArrowUpTrayIcon></span>
         </Button>
-        <AddDialogBtn></AddDialogBtn>
+        <AddDialogBtn applications={applications} setApplications={setApplications}></AddDialogBtn>
       </div>
     </div>
   );

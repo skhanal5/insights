@@ -15,7 +15,6 @@ export default function Tracker() {
     })
 
     const applicationData = await response.json();
-    console.log(applicationData)
     if (applicationData != "No applications found") {
       setApplications([...applications, ...applicationData])
     }
@@ -27,7 +26,7 @@ export default function Tracker() {
 
   return (
     <div>
-      <DataTable columns={columns} data={applications}></DataTable>
+      <DataTable columns={columns} data={applications} applications = {applications} setApplications={setApplications}></DataTable>
     </div>
   );
 }

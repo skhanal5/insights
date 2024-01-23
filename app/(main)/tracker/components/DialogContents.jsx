@@ -24,7 +24,7 @@ import { useRef, useState } from "react";
 import ErrorPopup from "@/components/ErrorPopup";
 import { useSession } from "next-auth/react";
 
-export default function DialogContents({ closeDialog }) {
+export default function DialogContents({applications, setApplications, closeDialog }) {
   const formRef = useRef(null);
   const company = useRef("");
   const role = useRef("");
@@ -42,6 +42,11 @@ export default function DialogContents({ closeDialog }) {
     setDate(null);
     setAppStatus("Applied");
   };
+
+  const addApplication = (newApplication) => {
+    console.log(applications)
+    setApplications([...applications, ...newApplication])
+  }
 
   const changeDateFormat = (date) => {
     let convertedDate = format(date, "MM/dd/yyyy")
@@ -73,12 +78,16 @@ export default function DialogContents({ closeDialog }) {
         app_status: appStatus,
       }),
     }); 
+    
+    //TODO: handle loading somehow
 
-    console.log(response);
-    //handle loading somehow
-
-    //close
-    formRef.current.reset();
+    //update client state
+    const insertedItem = await response.json()
+    console.log(insertedItem)
+    addApplication([insertedItem])
+    
+    //Close dialog and reset all fields
+    //formRef.current.reset();
     resetFields();
     closeDialog();
   };
@@ -150,7 +159,7 @@ export default function DialogContents({ closeDialog }) {
                 <SelectItem value="Offer">
                   <StatusCell status="Offer"></StatusCell>
                 </SelectItem>
-                <SelectItem value="Screen">
+                <SelectItem value="Phone Screen">
                   <StatusCell status="Phone Screen"></StatusCell>
                 </SelectItem>
                 <SelectItem value="Rejected">
