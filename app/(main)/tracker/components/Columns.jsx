@@ -67,8 +67,7 @@ export const columns = [
     accessorKey: "Actions",
     header: "Actions",
     cell: ({ row }) => {
-      //const payment = row.original;
-
+      const applicationData = row.original;
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -83,7 +82,7 @@ export const columns = [
             <DropdownMenuItem className="hover:cursor-pointer">
               View application details
             </DropdownMenuItem>
-            <DeleteDialogBtn ></DeleteDialogBtn>
+            <DeleteDialogBtn targetApplication={applicationData}></DeleteDialogBtn>
           </DropdownMenuContent>
         </DropdownMenu>
       );
