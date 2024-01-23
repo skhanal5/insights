@@ -2,7 +2,7 @@ import { ArrowDownTrayIcon, ArrowUpTrayIcon } from "@heroicons/react/24/outline"
 import AddDialogBtn from "./AddDialogBtn";
 import Fields from "./Fields";
 import SearchFilter from "./SearchFilter";
-import { Button } from "@/components/shadcn/button";
+import { Button } from "@/components/ui/button";
 
 export default function TableUtilities({ table, applications, setApplications }) {
   return (

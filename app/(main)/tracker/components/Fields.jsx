@@ -3,14 +3,14 @@
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
 
-import { Button } from "@/components/shadcn/button";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-} from "@/components/shadcn/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 
 //prop drilling from DataTable??
 export default function Fields({ table }) {

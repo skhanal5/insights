@@ -1,4 +1,4 @@
-import { Input } from "@/components/shadcn/input";
+import { Input } from "@/components/ui/input";
 
 //prop drilling from DataTable??
 export default function SearchFilter({ table }) {

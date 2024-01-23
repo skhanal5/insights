@@ -1,8 +1,8 @@
-import { Button } from "@/components/shadcn/button";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogTrigger,
-} from "@/components/shadcn/dialog";
+} from "@/components/ui/dialog";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import DialogContents from "./DialogContents";
 import { useState } from "react";

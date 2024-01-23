@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Branding from "./Branding";
 import ErrorPopup from "@/components/ErrorPopup";
 import FormTitle from "./FormTitle";
-import { Input } from "@/components/shadcn/input";
+import { Input } from "@/components/ui/input";
 import FormAlternativeOption from "./FormAlternativeOption";
 
 export default function LoginForm() {

@@ -6,10 +6,10 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/shadcn/select";
-import { Input } from "@/components/shadcn/input";
-import { Label } from "@/components/shadcn/label";
-import { Button } from "@/components/shadcn/button";
+} from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 import {
   DialogContent,
   DialogDescription,
@@ -17,7 +17,7 @@ import {
   DialogHeader,
   DialogClose,
   DialogTitle,
-} from "@/components/shadcn/dialog";
+} from "@/components/ui/dialog";
 import StatusCell from "./StatusCell";
 import { DatePicker } from "./DatePicker";
 import { useRef, useState } from "react";

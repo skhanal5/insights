@@ -1,7 +1,7 @@
 "use client";
 
 import StatusCell from "./components/StatusCell";
-import { Button } from "@/components/shadcn/button";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,7 +9,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/shadcn/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 
 import {
   AlertDialog,
@@ -21,7 +21,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/shadcn/alert-dialog";
+} from "@/components/ui/alert-dialog";
 
 import {
   ChevronUpDownIcon,

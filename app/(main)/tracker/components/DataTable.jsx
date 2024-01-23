@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { Button } from "@/components/shadcn/button";
+import { Button } from "@/components/ui/button";
 
 import {
   getSortedRowModel,
@@ -20,7 +20,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/shadcn/table";
+} from "@/components/ui/table";
 
 import TableUtilities from "./TableUtilities";
 
