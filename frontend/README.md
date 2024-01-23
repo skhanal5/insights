@@ -11,11 +11,10 @@
 
 ## Project Preview
 
-### General Demo (Soon)
+### General Overview (Soon)
 
-### Mobile Demo (Soon)
+### Mobile Overview (Soon)
 
-## Features
-* Users can add and query job applications via search, column, etc.
-* Users can export their job applications to a CSV or an Excel sheet
-* Dashboard allows users to see an overall view of their job search performance
+### Feature: Dashboard
+
+### Feature: Tracker
