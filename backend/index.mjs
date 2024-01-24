@@ -29,21 +29,20 @@ export const handler = async (event) => {
     switch (event.resource) {
       //auth-js route
       case "/auth": {
-        let body = await authHandler(userTable, event, dynamo)
+        let body = await authHandler(userTable, event, dynamo);
         break; 
       }
 
       //registration (POST)
       case "/users": {
-        body = await registrationHandler(userTable, event, dynamo)
+        body = await registrationHandler(userTable, event, dynamo);
         break;
       }
       case "/applications": {
 
         // CORS Prefetch response
         if (event.requestContext.httpMethod == "OPTIONS") break;
-
-        const tableName = "applications";
+        
         body = await addApplicationHandler(applicationsTable, event, dynamo);
       }
 
