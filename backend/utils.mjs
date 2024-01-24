@@ -8,7 +8,7 @@ import {
 } from "@aws-sdk/lib-dynamodb";
 
 
-const authHandler = async (tableName, event) => {
+const authHandler = async (tableName, event, dynamo) => {
     // fetch user if exists
     let requestBody = JSON.parse(event.body);
     let responseBody;
@@ -25,13 +25,13 @@ const authHandler = async (tableName, event) => {
     if (res) {
       const { password, ...userWithoutPassword } = user.Item;
       responseBody = userWithoutPassword;
-      return responseBody
+      return responseBody;
     } else {
       throw new Error("Invalid credentials. Try again");
     }
-}
+};
 
-const registrationHandler = async (tableName, event) => {
+const registrationHandler = async (tableName, event, dynamo) => {
     let requestBody = JSON.parse(event.body);
     let responseBody;
     const res = await dynamo.send(
@@ -51,7 +51,7 @@ const registrationHandler = async (tableName, event) => {
     return responseBody;
 
     //haven't handled error here...
-}
+};
 
 const addApplicationHandler = async (tableName, event, dynamo) => {
   let requestBody = JSON.parse(event.body);
@@ -84,7 +84,7 @@ const addApplicationHandler = async (tableName, event, dynamo) => {
   const { password, ...appWithoutPassword } = res.Attributes;
   responseBody = appWithoutPassword;
   return responseBody;
-}
+};
 
 const fetchApplicationsHandler = async (tableName, event, dynamo) => {
   let responseBody;
@@ -105,8 +105,8 @@ const fetchApplicationsHandler = async (tableName, event, dynamo) => {
   } else {
     responseBody = apps.Items;
   }
-  return responseBody
-}
+  return responseBody;
+};
 
 
 const deleteApplicationHandler = async (tableName, event, dynamo) => {
@@ -122,12 +122,12 @@ const deleteApplicationHandler = async (tableName, event, dynamo) => {
     })
   );
   if (deletedApp.hasOwnProperty("$metadata")) {
-    body = "Successfully deleted";
+    responseBody = "Successfully deleted";
   } else {
-    body = "Failed to delete";  
+    responseBody = "Failed to delete";  
   }
 
-  return responseBody
-}
+  return responseBody;
+};
 
-export {registrationHandler, authHandler, addApplicationHandler, fetchApplicationsHandler, deleteApplicationHandler}
+export {registrationHandler, authHandler, addApplicationHandler, fetchApplicationsHandler, deleteApplicationHandler};
