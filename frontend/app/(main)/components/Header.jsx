@@ -1,6 +1,5 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import HeaderTitle from "./HeaderTitle";
 import HeaderProfile from "./HeaderProfile";
 

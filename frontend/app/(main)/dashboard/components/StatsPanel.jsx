@@ -26,12 +26,19 @@ export default function StatsPanel() {
   ];
 
   return (
-    <div className="grid grid-cols-1 gap-5 md:grid-cols-5">
-      {metrics.map((metric) => {
-        return (
-            <StatsCell key={metric.name} title={metric.name} value={metric.value}></StatsCell>
-        )
-      })}
+    <div className="flex flex-col gap-2">
+      <div className="font-semibold">Overview</div>
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-5">
+        {metrics.map((metric) => {
+          return (
+            <StatsCell
+              key={metric.name}
+              title={metric.name}
+              value={metric.value}
+            ></StatsCell>
+          );
+        })}
+      </div>
     </div>
   );
 }
