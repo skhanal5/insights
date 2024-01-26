@@ -2,7 +2,7 @@ import SidebarLink from "./SidebarLink";
 import {
   ChartBarSquareIcon,
   ClipboardDocumentListIcon,
-  ChartPieIcon,
+  BookOpenIcon,
   QueueListIcon,
 } from "@heroicons/react/24/outline";
 
@@ -24,9 +24,9 @@ export default function SidebarLinkContainer() {
       icon: <QueueListIcon />,
     },
     {
-      name: "Metrics",
+      name: "Resources",
       link: "/metrics",
-      icon: <ChartPieIcon/>,
+      icon: <BookOpenIcon/>,
     },
   ];
   

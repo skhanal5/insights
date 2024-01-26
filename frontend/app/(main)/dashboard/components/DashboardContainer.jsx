@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import StatsPanel from "./StatsPanel";
 import { Calendar } from "@/components/ui/calendar";
 import { useState } from "react";
