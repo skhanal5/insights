@@ -41,8 +41,8 @@ export default function StatsCell({ title, value }) {
       <div className="flex flex-col md:flex-row gap-2 md:gap-3 items-center">
         <div className="rounded-full p-2 bg-blue-100">{getIcon()}</div>
         <div className="flex flex-col items-center md:items-start">
-          <span className="text-xs md:text-sm">{title}</span>
-          <span className="text-sm font-semibold md:text-base">{value}</span>
+          <span className="text-xs font-semibold text-slate-600/60 md:text-sm">{title}</span>
+          <span className="text-sm font-bold text-slate-600 md:text-lg">{value}</span>
         </div>
       </div>
     </div>
