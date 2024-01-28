@@ -13,7 +13,7 @@ import {
   const chartConfig = {
     type: "line",
     width: "100%",
-    height: 240,
+    height: "100%",
     series: [
       {
         name: "Sales",
@@ -102,11 +102,11 @@ import {
    
   export default function LineChart() {
     return (
-      <Card className="rounded-lg shadow hover:shadow-lg w-3/4 p-5">
+      <Card className="h-full rounded-lg shadow hover:shadow-lg w-3/4 p-5">
         <div className="font-semibold">
             Year in Review
         </div>
-        <CardBody className="p-0">
+        <CardBody className="h-full p-0">
           <Chart {...chartConfig} />
         </CardBody>
       </Card>

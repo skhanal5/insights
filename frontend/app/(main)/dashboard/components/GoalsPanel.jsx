@@ -16,8 +16,8 @@ export default function GoalsPanel() {
   ];
 
   return (
-    <div className="flex flex-col gap-5 bg-white shadow hover:shadow-lg rounded-lg">
-      <div className="fotn-semibo">
+    <div className="h-full p-5 flex flex-col gap-5 bg-white shadow hover:shadow-lg rounded-lg">
+      <div className="font-semibold">
         Goals Summary
       </div>
     </div>

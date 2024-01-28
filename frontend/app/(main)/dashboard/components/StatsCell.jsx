@@ -7,8 +7,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function StatsCell({ title, value }) {
-  const iconStyle =
-    "h-4 md:h-5 items-center text-blue-700";
+  const iconStyle = "md:h-3 lg:h-5 text-blue-700";
   const getIcon = () => {
     switch (title) {
       case "Applications":
@@ -37,13 +36,15 @@ export default function StatsCell({ title, value }) {
   };
 
   return (
-    <div className="p-5 flex justify-center shadow hover:shadow-lg bg-white hover:bg-gray-100/2 rounded-lg transition">
-      <div className="flex flex-col md:flex-row gap-2 md:gap-3 items-center">
-        <div className="rounded-full p-2 bg-blue-100">{getIcon()}</div>
-        <div className="flex flex-col items-center md:items-start">
-          <span className="text-xs font-semibold text-slate-600/60 md:text-sm">{title}</span>
-          <span className="text-sm font-bold text-slate-600 md:text-lg">{value}</span>
-        </div>
+    <div className="p-5 flex flex-col lg:flex-row justify-content items-center gap-3 shadow hover:shadow-lg bg-white hover:bg-gray-100/2 rounded-lg transition">
+      <div className="rounded-full p-2 bg-blue-100">{getIcon()}</div>
+      <div className="flex flex-col items-center lg:items-start">
+        <span className="text-xs font-semibold text-slate-600/60 lg:text-sm">
+          {title}
+        </span>
+        <span className="text-sm font-bold text-slate-600 lg:text-lg">
+          {value}
+        </span>
       </div>
     </div>
   );

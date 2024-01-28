@@ -17,7 +17,7 @@ export default function HeaderTitle() {
         break;
       case "/goals":
         header="Goals";
-        description = "Stay on top pf all of your job search goals."
+        description = "Stay on top of all of your job search tasks."
     }
     return (
       <div className="flex flex-col gap-1">
