@@ -15,7 +15,7 @@ export default function RecentAppsCell({ company, role }) {
     <div className="h-1/3 p-5 shadow hover:shadow-lg rounded-lg flex flex-col hover:cursor-pointer transition">
       <div className="flex flex-row gap-5 items-center justify-between">
         <div className="flex flex-row gap-2 items-center">
-          <div className="bg-amber-100/80 rounded-full p-2 bg-slate-100/95">
+          <div className="bg-amber-200/50 rounded-full p-2 bg-slate-100/95">
             <BriefcaseIcon className="w-4"></BriefcaseIcon>
           </div>
         </div>

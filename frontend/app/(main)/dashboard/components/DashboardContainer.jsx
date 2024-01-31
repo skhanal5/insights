@@ -8,8 +8,8 @@ import ResourcesPanel from "./ResourcesPanel";
 export default function DashboardContainer() {
   const [date, setDate] = useState(new Date());
   return (
-    <div className="flex flex-row gap-5 h-full max-h-full">
-      <div className="flex flex-col gap-5">
+    <div className="flex flex-row gap-5 h-full max-h-full w-full">
+      <div className="flex flex-col gap-5 w-2/3">
         <div className="flex flex-col h-1/2 gap-5">
           <StatsPanel></StatsPanel>
           <div className="flex flex-row gap-5 w-full h-full">
