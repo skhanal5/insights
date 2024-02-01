@@ -102,7 +102,7 @@ import {
    
   export default function LineChart() {
     return (
-      <Card className="h-full rounded-lg shadow hover:shadow-lg w-3/4 p-5">
+      <Card className="h-full rounded-lg shadow hover:shadow-lg lg:w-3/4 p-5">
         <div className="font-semibold">
             Year in Review
         </div>

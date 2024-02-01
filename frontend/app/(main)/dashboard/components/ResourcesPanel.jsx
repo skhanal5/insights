@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 export default function ResourcesPanel() {
   return (
-    <div className="w-max p-5 flex flex-col rounded-lg bg-white justify-between items-center shadow hover:shadow-lg transition">
+    <div className="lg:w-max p-5 flex flex-col rounded-lg bg-white justify-between items-center shadow hover:shadow-lg transition">
       <Image
         src="/help.svg"
         height={150}
