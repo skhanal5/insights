@@ -11,7 +11,7 @@ export default function GoalsSummaryCell({ type, value }) {
     switch (type) {
       case "New Goals": {
         return {
-          color: "bg-blue-200/50",
+          color: "bg-sky-300/50",
           icon: <BellAlertIcon></BellAlertIcon>,
         };
       }

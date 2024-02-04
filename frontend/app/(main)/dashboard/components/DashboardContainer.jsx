@@ -5,6 +5,7 @@ import GoalsSummaryPanel from "./GoalsSummaryPanel";
 import LineChart from "./LineChart";
 import RecentApps from "./RecentAppsPanel";
 import ResourcesPanel from "./ResourcesPanel";
+import ReminderPanel from "./ReminderPanel";
 export default function DashboardContainer() {
   const [date, setDate] = useState(new Date());
   return (
@@ -17,8 +18,9 @@ export default function DashboardContainer() {
             <ResourcesPanel></ResourcesPanel>
           </div>
         </div>
-        <div className="flex flex-row gap-5 lg:w-1/3">
+        <div className="flex flex-row gap-5">
           <RecentApps></RecentApps>
+          <ReminderPanel></ReminderPanel>
         </div>
       </div>
       <div className="flex flex-col gap-5 lg:w-1/3 w-full">
