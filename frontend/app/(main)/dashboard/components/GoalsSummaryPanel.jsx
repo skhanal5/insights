@@ -1,6 +1,7 @@
-import GoalsCell from "./GoalCell";
+import GoalsSummaryCell from "./GoalsSummaryCell";
+import Link from "next/link";
 
-export default function GoalsPanel() {
+export default function GoalsSummaryPanel() {
   //get data here or from the parent
   const goalStatsByGroup = [
     {
@@ -19,14 +20,21 @@ export default function GoalsPanel() {
 
   return (
     <div className="h-full p-5 flex flex-col gap-5 bg-white shadow hover:shadow-lg rounded-lg">
-      <div className="font-semibold">Goals Summary</div>
+      <div className="flex flex-row justify-between">
+        <div className="font-semibold">Goals Summary</div>
+        <Link href="/goals">
+          <div className="text-xs text-slate-400/90 hover:cursor-pointer hover:text-slate-400/50">
+            View more
+          </div>
+        </Link>
+      </div>
       {goalStatsByGroup.map((goal) => {
         return (
-          <GoalsCell
+          <GoalsSummaryCell
             key={goal.type}
             type={goal.type}
             value={goal.value}
-          ></GoalsCell>
+          ></GoalsSummaryCell>
         );
       })}
     </div>

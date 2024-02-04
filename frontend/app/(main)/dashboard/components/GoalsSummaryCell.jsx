@@ -1,26 +1,30 @@
 import {
   BellAlertIcon,
   RocketLaunchIcon,
-  CheckCircleIcon
+  CheckCircleIcon,
 } from "@heroicons/react/24/outline";
 import { Progress } from "@/components/ui/progress";
+import Badge from "./Badge";
 
-export default function GoalsCell({ type, value }) {
+export default function GoalsSummaryCell({ type, value }) {
   const getCellStyle = () => {
     switch (type) {
       case "New Goals": {
         return {
+          color: "bg-blue-200/50",
           icon: <BellAlertIcon></BellAlertIcon>,
         };
       }
       case "In Progress": {
         return {
+          color: "bg-yellow-200/50",
           icon: <RocketLaunchIcon></RocketLaunchIcon>,
         };
       }
 
       case "Completed": {
         return {
+          color: "bg-green-200/50",
           icon: <CheckCircleIcon></CheckCircleIcon>,
         };
       }
@@ -30,19 +34,13 @@ export default function GoalsCell({ type, value }) {
   const style = getCellStyle();
 
   return (
-    <div className="p-5 shadow hover:shadow-lg rounded-lg flex flex-col items-center justify-content hover:cursor-pointer transition w-full">
-      <div className="flex flex-row gap-5 items-center">
+    <div className="p-5 w-full flex flex-row gap-5 justify-content items-center rounded-lg shadow hover:shadow-lg hover:cursor-pointer transition">
+      <Badge color={style.color} icon={style.icon}></Badge>
+      <div className="flex flex-col gap-1 w-full">
+        <span className="text-sm">{type}</span>
         <div className="flex flex-row gap-2 items-center">
-          <div className="bg-amber-100/80 rounded-full p-2 bg-slate-100/95">
-            <div className="w-4">{style.icon}</div>
-          </div>
-        </div>
-        <div className="flex flex-col gap-1">
-          <span className="text-sm">{type}</span>
-          <div className="flex flex-row gap-2 items-center">
-            <Progress value={value}/>
-            <div className="text-sm">{value}</div>
-          </div>
+          <Progress className="h-2" color={style.color} value={value} />
+          <div className="text-sm">{value}</div>
         </div>
       </div>
     </div>

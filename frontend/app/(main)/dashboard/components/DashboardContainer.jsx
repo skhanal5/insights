@@ -1,7 +1,7 @@
 "use client";
 import StatsPanel from "./StatsPanel";
 import { useState } from "react";
-import GoalsPanel from "./GoalsPanel";
+import GoalsSummaryPanel from "./GoalsSummaryPanel";
 import LineChart from "./LineChart";
 import RecentApps from "./RecentAppsPanel";
 import ResourcesPanel from "./ResourcesPanel";
@@ -23,7 +23,7 @@ export default function DashboardContainer() {
       </div>
       <div className="flex flex-col gap-5 lg:w-1/3 w-full">
         <div className="flex flex-col lg:h-1/2 gap-5">
-          <GoalsPanel></GoalsPanel>
+          <GoalsSummaryPanel></GoalsSummaryPanel>
         </div>
       </div>
     </div>
