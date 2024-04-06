@@ -17,7 +17,7 @@ export default function RecentApps() {
     },
   ];
   return (
-    <div className="w-full lg:h-max flex flex-col gap-5 p-5 bg-white rounded-lg shadow hover:shadow-lg">
+    <div className="lg:w-1/2 lg:h-max flex flex-col gap-5 p-5 bg-white rounded-lg shadow hover:shadow-lg">
       <div className="font-semibold">Recent Apps</div>
       <div className="flex flex-col gap-2">
         {recentApplications.map((application) => {

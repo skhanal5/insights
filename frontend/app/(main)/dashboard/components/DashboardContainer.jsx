@@ -18,7 +18,7 @@ export default function DashboardContainer() {
             <ResourcesPanel></ResourcesPanel>
           </div>
         </div>
-        <div className="flex flex-row gap-5">
+        <div className="flex flex-col lg:flex-row gap-5">
           <RecentApps></RecentApps>
           <ReminderPanel></ReminderPanel>
         </div>
