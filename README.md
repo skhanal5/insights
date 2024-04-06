@@ -18,3 +18,4 @@
 ### Feature: Dashboard
 
 ### Feature: Tracker
+![image](https://github.com/skhanal5/insights/assets/74752121/9cfc62d1-d4cc-4f19-a4f6-91fa3feb9a00)
